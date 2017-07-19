@@ -1,17 +1,16 @@
+SELECT * FROM groceries;
+
+SELECT * FROM aisles;
+
+SELECT * FROM groceries WHERE quantity <= 3;
+
 SELECT * FROM groceries
-
-SELECT * FROM aisles
-
-SELECT item FROM groceries WHERE quantity <= 3
-
-SELECT item FROM groceries
-  JOIN aisles
-  WHERE name = "Fruit"
+  FULL OUTER JOIN aisles
   ON groceries.aisle_id = aisles.id
-  ORDER BY name
+  WHERE name = 'Fruit';
 
-SELECT item FROM aisles WHERE name = "Vegetables"
-  JOIN groceries
+SELECT * FROM groceries
+  FULL OUTER JOIN aisles
+  ON groceries.aisle_id = aisles.id
   WHERE quantity > 1
-  ON groceries.aisle_id = aisles.id
-  ORDER BY item
+  AND name = 'Vegetables';
